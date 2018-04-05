@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CookieService} from '../cookie.service';
-import {Cookie} from '../cookie1';
+import {Cookie} from '../cookie-model';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -12,11 +12,10 @@ export class AddCookieComponent implements OnInit {
   cookieSize: number;
   cookieShape: string;
   cookieType: string;
-  cookieObs: Observable<Response>;
-  @Output() cookieAdded = new EventEmitter();
+  @Output() cookieAdded = new EventEmitter<Cookie>();
 
-  onCookieCreated() {
-    const cookie = new Cookie(10, 'heart', 'blueberry');
+  onCookieCreated(size: string, type: string, shape: string) {
+    const cookie = new Cookie(+size, shape, type, 0);
 
     this.cookieService.createCookie(cookie)
       .subscribe((response) => {

@@ -1,2 +1,6 @@
 <h2>The Cookie List</h2>
-<app-cookie-item></app-cookie-item>
+<ul>
+  <li *ngFor="let cookie of cookies">
+    <app-cookie-item [cookie]="cookie" (cookieRemoved) = "removeCookie($event)"></app-cookie-item>
+  </li>
+</ul>

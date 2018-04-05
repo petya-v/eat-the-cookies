@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
-import {Cookie} from './cookie1';
+import {Cookie} from './cookie-model';
 
 @Injectable()
 export class CookieService {

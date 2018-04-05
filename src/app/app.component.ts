@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Cookie} from "./cookie-model";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  newCookie: Cookie;
+
+  addNewCookie(newCookie: Cookie){
+    this.newCookie = newCookie;
+  }
 }
